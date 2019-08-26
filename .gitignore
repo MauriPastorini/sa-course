@@ -1,0 +1,9 @@
+.vscode
+node_modules
+build
+npm-debug.log
+.env
+.DS_Store
+dump.rdb
+.tmp
+*.sqlite
