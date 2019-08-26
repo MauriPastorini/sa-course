@@ -31,6 +31,7 @@
 
 0.1 + 0.2 // 0.30000000000000004;
 0.1 + 0.7 // 0.7999999999999999;
+https://qntm.org/notpointthree
 
 // Math object
 
@@ -39,8 +40,66 @@ Math.sqrt(4); // 2
 const radius = 5;
 const circumference = 2 * Math.PI * radius;
 
-// Parsing numbers
+// Coercion explicit and implicit
+// Explicit
+var a = "42";
+var b = Number( a );
 
+console.log( a );	// "42"
+console.log( b );	// 42
+
+// Implicit
+"99" == 99 // True
+
+//////////////////////
+// Boolean
+//////////////////////
+
+true;
+false;
+
+0 == false; // true
+"" == false; // true
+NaN == false; // false
+null == false; // false
+undefined == false; // false
+1 == true; // true
+10 == true; // false
+10 == '10'; //true
+"hello" == true; // false
+0 === false // false, strict equal, no type conversion
+1 === true; // false, stric equal, no type conversion
+10 === '10'; // false, stric equal, no type conversion
+
+// There are also "!=" and "!==" operators
+
+// Implicit Boolean conversion
+/*
+Javascript truth
+- false, 0, empty strings (""), NaN, null, and undefined all become false.
+- All other values become true.
+    - "hello"
+    - 42
+    - true
+    - [ ], [ 1, "2", 3 ] (arrays)
+    - { }, { a: 42 } (objects)
+    - function foo() { .. } (functions)
+*/
+const values = [0, "", NaN, null, undefined];
+values.forEach((value) => {
+    if (!value) { 
+        console.log(`${value} is false`);
+    }
+});
+
+
+// Explicit Boolean conversion
+
+Boolean(''); // false
+Boolean(NaN); // false
+Boolean(10); // true
+
+// Parsing numbers
 parseInt('10'); // 10
 parseFloat('0.25'); // 0.25
 + '10'; // 10 using '+' unary operator
@@ -70,45 +129,11 @@ object.attribute // undefined
 object.attribute = null;
 object.attribute // null
 
-//////////////////////
-// Boolean
-//////////////////////
-
-true;
-false;
-
-0 == false; // true
-"" == false; // true
-NaN == false; // false
-null == false; // false
-undefined == false; // false
-1 == true; // true
-10 == true; // false
-10 == '10';
-"hello" == true; // false
-0 === false // false, strict equal, no type conversion
-1 === true; // false, stric equal, no type conversion
-10 === '10'; // false, stric equal, no type conversion
-
-// There are also "!=" and "!==" operators
-
-/*
-Javascript truth
-- false, 0, empty strings (""), NaN, null, and undefined all become false.
-- All other values become true.
-*/
-const values = [0, "", NaN, null, undefined];
-values.forEach((value) => {
-    if (!value) { // Be careful, take a look at the differences wit the previous example
-        console.log(`${value} is false`);
-    }
-});
-
-// Explicit Boolean conversion
-
-Boolean(''); // false
-Boolean(NaN); // false
-Boolean(10); // true
+// Diferencia entre null y undefined
+// null es una valor asignado y significa "nada".
+// undefined significa que una variable fue declarada pero no definida aun
+// null es una objeto. undefined es de tipo undefined.
+// null !== undefined pero null == undefined.
 
 //////////////////////
 // Variables
@@ -154,6 +179,12 @@ y = y + 5; // 5
 x++ // 5
 x // 6
 ++x // 7
+
+var xPlus = 2;
+testFun(++xPlus);
+function testFun(param){
+    console.log('Param: ', param);
+}
 
 y-- // 5
 y // 4
@@ -297,29 +328,6 @@ class Student extends Person {
 }
 
 var student = new Student("John", 25, 190432);
-// Destructuring
-
-const obj = { nombre: "Carlos", apellido: "Gonzalez" };
-const { nombre } = obj;
-console.log(nombre); // "Carlos"
-
-// Spread operators
-// Los spread operators o operadores  de propagación permiten  una propagación o expansión individual dentro de un receptor.
-
-const obj1 = { firstName: 'Foo', age: 22 };
-const obj2 = { lastName: 'Bar', gender: 'M' };
-const newObj = { ...obj1, ...obj2, planet: 'Earth' };
-console.log(newObj)
-// { firstName: 'Foo', age: 22, lastName: 'Bar', gender: 'M', planet: 'Earth' }
-
-
-// ES5
-Math.max(5, 6, 8, 9, 11, 999);
-// 999
-
-// ES6
-const numbers = [5, 6, 8, 9, 11, 999];
-Math.max(...numbers)
 
 //////////////////////
 // Arrays
@@ -341,82 +349,21 @@ typeof a[90]; // undefined
 
 a.push('cow');
 
-// Destructuring
-
-const [a, b] = ["hola", "mundo"];
-console.log(a); // "hola"
-console.log(b); // "mundo"
-
-
-// Spread operators
-
-const codeburst = 'CODEBURST';
-const characters = [ ...codeburst ];
-console.log(characters)
-// [ 'C', 'O', 'D', 'E', 'B', 'U', 'R', 'S', 'T' ]
-
-const items = ['This', 'is', 'a', 'sentence'];
-console.log(items) // [ 'This', 'is', 'a', 'sentence' ]
-console.log(...items) // This is a sentence
-
-// array functions (ES6)
-
-// forEach
-let letras = ['a', 'b', 'c'];
-
-letras.forEach(function(element) {
- console.log(element);
-});
-
-// a
-// b
-// c
-
-//find
-
-const inventory = [
-   {name: 'apples', quantity: 2},
-   {name: 'bananas', quantity: 0},
-   {name: 'cherries', quantity: 5}
-];
-console.log(inventory.find(fruit => fruit.name === 'cherries'));
-// { name: 'cherries', quantity: 5 }
-
-// map 
-
-var numbers = [1, 5, 10, 15];
-var doubles = numbers.map(function(x) {
-  return x * 2;
-});
-
-console.log(doubles);
-// [2, 10, 20, 30]
-console.log(numbers);
-// numbers is still [1, 5, 10, 15]
-
-var numbers = [1, 4, 9];
-var roots = numbers.map(Math.sqrt);
-
-console.log(roots);
-// [1, 2, 3]
-console.log(numbers);
-// [1, 4, 9]
-
-// filter 
-
-var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-
-const result = words.filter(word => word.length > 6);
-
-console.log(result);
-// ["exuberant", "destruction", "present"]
-
-
 //////////////////////
 // Functions
 //////////////////////
 
 // object prototype
+
+// Anonymous function 
+var foo = function() {
+	// ..
+};
+
+// Named function 
+var x = function bar(){
+	// ..
+};
 
 // functions are objects
 
@@ -430,36 +377,6 @@ function Person(name, age) {
 
 var you = new Person('John', 25);
 you.toString();
-
-// arrow functions (ES6)
-//Proporcionan una sintaxis más compacta para la definición de funciones. Además conserva el valor de this
-
-var sum = (a, b) => a + b;
-sum(1,2) // 3
-
-// default parameters (ES6)
-
-function f (x, y = 7, z = 42) {
-   return x + y + z
-}
-f(1) // 50
-f(1, 1) // 44
-f(1, 1, 1) // 3
-
-// rest parameters (ES6)
-
-function findMax(...numbers) {
-   let max = Number.MIN_SAFE_INTEGER;
-   numbers.forEach(n => {
-       if (n > max) {
-           max = n;
-       }
-   })
-   return max;
-}
-
-console.log('max value ' + findMax(1, 123, 500, 115, 44, 88));
-// "500"
 
 // extending object
 
@@ -507,7 +424,15 @@ function calculate(score, assistance) {
     return score > 70 && factor(assistance);
 }
 
-// closures
+//// Lexical Scope
+// Lexical scope means that scope is defined by author-time decisions of where functions are declared. 
+// The lexing phase of compilation is essentially able to know where and how all identifiers are declared, 
+// and thus predict how they will be looked-up during execution.
+https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20%26%20closures/fig2.png
+
+// Closures
+//Closure es cuando una funcion puede recordar el acceso al lexical scope incluso cuando es invocado afuera de el
+
 
 function prefixAndSuffix(prefix) {
     return function(suffix) {
@@ -516,3 +441,173 @@ function prefixAndSuffix(prefix) {
 }
 var addSuffix = prefixAndSuffix('Hi!, I\'m ');
 addSuffix('John');
+
+// Hoisting
+// Hoisting es el comportamiento por defecto de JavaScript en mover declaraciones arriba del todo
+
+a = 2;
+
+var a;
+
+console.log( a ); //2
+
+///
+
+function hoist() {
+    a = 20;
+    var b = 100;
+}
+
+hoist();
+
+console.log(a); 
+/* 
+Accessible as a global variable outside hoist() function
+Output: 20
+*/
+
+console.log(b); 
+/*
+Since it was declared, it is confined to the hoist() function scope.
+We can't print it out outside the confines of the hoist() function.
+Output: ReferenceError: b is not defined
+*/
+
+
+// Garbage Collection
+// En el siguiente caso, someReallyBigData seguiria en el scope por btn.addEventListener…. que mantiene el scope. 
+
+function process(data) {
+	// do something interesting
+}
+
+var someReallyBigData = {  };
+
+process( someReallyBigData );
+
+var btn = document.getElementById( "my_button" );
+
+btn.addEventListener( "click", function click(evt){
+	console.log("button clicked");
+}, /*capturingPhase=*/false );
+
+
+// Para poder “decirle” al garbage collector que pase, podriamos hacer uso de los block scopes
+
+function process(data) {
+	// do something interesting
+}
+
+// anything declared inside this block can go away after!
+{
+	let someReallyBigData = {  };
+
+	process( someReallyBigData );
+}
+
+var btn = document.getElementById( "my_button" );
+
+btn.addEventListener( "click", function click(evt){
+	console.log("button clicked");
+}, /*capturingPhase=*/false );
+
+
+//THIS
+
+// this is neither a reference to the function itself, nor is it a reference to the function's lexical scope.
+// this is actually a binding that is made when a function is invoked, 
+// and what it references is determined entirely by the call-site where the function is called.
+
+// Default Binding
+function foo() {
+	console.log( this.a );
+}
+
+var a = 2;
+
+foo(); // 2
+
+// Implicit Binding
+function foo() {
+	console.log( this.a );
+}
+var a = 3
+var obj = {
+	a: 2,
+	foo: foo
+};
+
+obj.foo(); // 2
+
+// Explicit Binding
+// In explicit binding we used an object to wrap the function so when it uses “this” it could get the properties of the object. 
+// But, what if you want to force a function call to use a particular object for the this binding, 
+// without putting a property function reference on the object?
+
+function foo() {
+	console.log( this.a );
+}
+
+var obj = {
+	a: 2
+};
+
+foo.call( obj ); // 2
+
+// Hard binding
+function foo(something) {
+	console.log( this.a, something );
+	return this.a + something;
+}
+
+var obj = {
+	a: 2
+};
+
+var bar = function() {
+    console.log(arguments);
+    return foo.apply( obj, arguments );
+};
+
+var b = bar( 3 ); // 2 3
+console.log( b ); // 5
+
+// `bar` hard binds `foo`'s `this` to `obj`
+// so that it cannot be overriden
+bar.call( window ); // 2 // Esto no lo entendi muy bien
+
+
+// As hard binding is really common, ES5 use a prototype called bind to add this feature:”
+function foo(something) {
+	console.log( this.a, something );
+	return this.a + something;
+}
+
+var obj = {
+	a: 2
+};
+
+var bar = foo.bind( obj );
+
+var b = bar( 3 ); // 2 3
+console.log( b ); // 5
+
+// new Binding
+// a brand new object is created (aka, constructed) out of thin air
+// the newly constructed object is set as the this binding for that function call
+// unless the function returns its own alternate object, the new-invoked function call will automatically return the newly constructed object.
+function foo(a) {
+	this.a = a;
+}
+
+var bar = new foo( 2 );
+console.log( bar.a ); // 2
+// By calling foo(..) with new in front of it, we've constructed a new object and set that new object as the this for the call of foo(..)
+
+// Review 
+
+// Determining the this binding for an executing function requires finding the direct call-site of that function. Once examined, four rules can be applied to the call-site, in this order of precedence:
+// Called with new? Use the newly constructed object.
+// Called with call or apply (or bind)? Use the specified object.
+// Called with a context object owning the call? Use that context object.
+// Default: undefined in strict mode, global object otherwise.
