@@ -112,5 +112,6 @@ Ejemplo: blocking-vs-non-blocking.js
 
 # Crear servidor 
 Ejemplo: node-example.js
+Ejemplo blockear servidor: node-example.js // Descomentar blockeo
 
-# Express ejemplo
+# Servidor Express 
