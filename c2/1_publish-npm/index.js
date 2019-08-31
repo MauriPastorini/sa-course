@@ -1,3 +1,3 @@
-const print = require('mauri-my-print')
+const pepe = require('mauri-my-print')
 
-print('Hello world')
+pepe('Hello world')

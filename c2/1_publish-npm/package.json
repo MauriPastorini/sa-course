@@ -1,5 +1,5 @@
 {
-  "name": "mauri-my-print",
+  "name": "1_publish-npm",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mauri-my-print": "^1.1.1",
+    "moment": "^2.24.0"
+  }
 }

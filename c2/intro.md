@@ -93,11 +93,16 @@ x: Cualquiera desde 0
 Ejemplo: 0_versioning_&_update 
 
 ## Creando y publicando un paquete NPM
+- Primero crea un carpeta con un proyecto de node (con package.json). Para esto dentro de la carpeta ejecutamos `npm init`. 
+- Recuerda que dentro de package.json tiene que tener la propiedad "main: index.js" u otro archivo para que 
+    la libreria sabe que exponer cuando otros clientes la requieran
+- `npm login` 
+- `npm publish` 
+- Recuerda: cuando utilices esta librería en un proyecto cliente, procura que la carpeta de la libreria no este dentro de tus carpetas del proyecto cliente, ya que `npm install tu-libreria` detecta que existe la carpeta `tu-libreria` y utiliza esta en vez de considerarla como una libreria normal de internet 
 Ejemplo '1_publish-npm'
 
 # Module
-Archivo o carpeta que contiene codigo.
-
+Todo archivo o carpeta que contiene codigo.
 Ejemplo: '2_module'
 
 # Node globals
@@ -115,3 +120,6 @@ Ejemplo: node-example.js
 Ejemplo blockear servidor: node-example.js // Descomentar blockeo
 
 # Servidor Express 
+Ejemplo: 
+  express-example
+  express-time-service
