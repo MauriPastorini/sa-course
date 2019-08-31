@@ -11,7 +11,8 @@ Node.js cuenta con un conjunto de de operaciones de I/O en su librería estánda
 Cuando Node.js tiene que hacer una operación de I/O (lectura desde la red, acceso a filesystem, etc.) en vez de bloquear el thread esperando por un resultado el mismo continuará con la ejecución y volverá a la operación cuando tenga un resultado. Este es el secreto que permite a Node.js manejar miles de conexiones concurrentes con un solo servidor de manera eficiente.
 El objetivo de este práctico es entender cómo funciona Javascript en runtime. Se realizarán ejercicios en un simulador, en el navegador y también en Node.js
 
-
+Lectura recomendada:
+[What is exactly node?](https://www.freecodecamp.org/news/what-exactly-is-node-js-ae36e97449f5/)
 
 #Cuando usar Node
 - Entrada y salida 
@@ -134,6 +135,17 @@ Ejemplo: '4_envs'
 
 # Event loop, blocking & non-blocking code
 Video recomendado: [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+
+Javascript: 
+- **single thread** - **non blocking asynchronous concurrent leanguage**
+- I have: 
+  - **a call stack**: one thread == one call stack == one thing at a time
+  - **an event loop** 
+  - **a callback queue**
+  - **some other apis**
+  - **and stuff**
+
+Ilustraciones
 - [Blocking code](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYmxvY2tpbmcoKSB7CiAgICB2YXIgc3VtID0gMDsKICAgIGZvciAodmFyIGkgPSAwOyBpIDwgNTsgaSsrKSB7CiAgICAgICAgc3VtICs9IGk7CiAgICB9CiAgICByZXR1cm4gc3VtOwp9CnZhciBzdW0gPSBibG9ja2luZygpOwpjb25zb2xlLmxvZyhzdW0pOwpjb25zb2xlLmxvZygnQW5vdGhlciBhY3Rpb24gZXhlY3V0aW9uJyk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 - [Non blocking code](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYmxvY2tpbmcoKSB7CiAgICB2YXIgc3VtID0gMDsKICAgIGZvciAodmFyIGkgPSAwOyBpIDwgNTsgaSsrKSB7CiAgICAgICAgc3VtICs9IGk7CiAgICB9CiAgICByZXR1cm4gc3VtOwp9CnNldFRpbWVvdXQoZnVuY3Rpb24gY2IoKSB7CiAgICAvLyBzZXRUaW1lb3V0IGlzIG5vbiBibG9ja2luZwogICAgdmFyIHN1bSA9IGJsb2NraW5nKCk7CiAgICBjb25zb2xlLmxvZyhzdW0pOwp9LCAwKTsKY29uc29sZS5sb2coJ0Fub3RoZXIgYWN0aW9uIGV4ZWN1dGlvbicpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 - Node.js: Blocking vs Non-Blocking
