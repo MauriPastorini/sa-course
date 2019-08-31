@@ -145,6 +145,9 @@ Javascript:
   - **some other apis**
   - **and stuff**
 
+![node](https://cdn-media-1.freecodecamp.org/images/1*BBlPbUjGVtfSPd7BHa1LHw.png "Node environment")
+
+
 Ilustraciones
 - [Blocking code](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYmxvY2tpbmcoKSB7CiAgICB2YXIgc3VtID0gMDsKICAgIGZvciAodmFyIGkgPSAwOyBpIDwgNTsgaSsrKSB7CiAgICAgICAgc3VtICs9IGk7CiAgICB9CiAgICByZXR1cm4gc3VtOwp9CnZhciBzdW0gPSBibG9ja2luZygpOwpjb25zb2xlLmxvZyhzdW0pOwpjb25zb2xlLmxvZygnQW5vdGhlciBhY3Rpb24gZXhlY3V0aW9uJyk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 - [Non blocking code](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYmxvY2tpbmcoKSB7CiAgICB2YXIgc3VtID0gMDsKICAgIGZvciAodmFyIGkgPSAwOyBpIDwgNTsgaSsrKSB7CiAgICAgICAgc3VtICs9IGk7CiAgICB9CiAgICByZXR1cm4gc3VtOwp9CnNldFRpbWVvdXQoZnVuY3Rpb24gY2IoKSB7CiAgICAvLyBzZXRUaW1lb3V0IGlzIG5vbiBibG9ja2luZwogICAgdmFyIHN1bSA9IGJsb2NraW5nKCk7CiAgICBjb25zb2xlLmxvZyhzdW0pOwp9LCAwKTsKY29uc29sZS5sb2coJ0Fub3RoZXIgYWN0aW9uIGV4ZWN1dGlvbicpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
