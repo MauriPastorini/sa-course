@@ -14,19 +14,20 @@ El objetivo de este práctico es entender cómo funciona Javascript en runtime. 
 Lectura recomendada:
 [What is exactly node?](https://www.freecodecamp.org/news/what-exactly-is-node-js-ae36e97449f5/)
 
-#Cuando usar Node
+# Cuando usar Node
 - Entrada y salida 
 - Built in modules
 - Asynchronous APIs (no threads)
 - C++ addons 
 - NPM module dependency manager
-#Cuando no usar Node
+
+# Cuando no usar Node
 - Tareas pesadas para la CPU.
 # Desventajas
 - Different way of thinking
 
 
-#Thinking Async
+# Thinking Async
 - Process-Per-Client (Multi-process)
 - Thread-per-client (Multi-threaded)
 - Event Loop ("Single threaded")
@@ -37,9 +38,11 @@ El uso inteligente de los clientes es la responsabilidad de tu aplicacion
 ## Callback
 A function that Node will "call back" at a later point of the program
 
+```js
 function cb(data) {
     // something
 }
+```
 
 someAsyncMethod(cd);
 
@@ -128,11 +131,6 @@ Ejemplo: '3_node_globals'
 # Variables de entorno
 Ejemplo: '4_envs'
 
-# Call Stack
-- [Call Stack](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gbXVsdGlwbHkobiwgbSkgewogICAgcmV0dXJuIG4gKiBtOwp9CmZ1bmN0aW9uIHNxdWFyZShuKSB7CiAgICByZXR1cm4gbXVsdGlwbHkobiwgbik7Cn0KZnVuY3Rpb24gcHJpbnRSZXN1bHQobikgewogICAgdmFyIG51bWJlciA9IHNxdWFyZShuKTsKICAgIGNvbnNvbGUubG9nKG51bWJlcik7Cn0KcHJpbnRSZXN1bHQoMTApOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
-- [Stacktrace](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gdGhpcmQoKSB7CiAgICB0aHJvdyBuZXcgRXJyb3IoJ1NlZSBzdGFja3RyYWNlJyk7Cn0KZnVuY3Rpb24gc2Vjb25kKCkgewogICAgdGhpcmQoKTsKfQpmdW5jdGlvbiBmaXJzdCgpIHsKICAgIHNlY29uZCgpOwp9CmZpcnN0KCk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) (Ejecutar también en navegador)
-- [Uncaught RangeError: Maximum call stack size exceeded](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gcmVjdXJzaXZlKCkgewogICAgcmV0dXJuIHJlY3Vyc2l2ZSgpOwp9CgpyZWN1cnNpdmUoKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)  (Ejecutar también en navegador)
-
 # Event loop, blocking & non-blocking code
 Video recomendado: [What the heck is the event loop anyway?](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
 
@@ -153,14 +151,18 @@ Ilustraciones
 - [Non blocking code](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gYmxvY2tpbmcoKSB7CiAgICB2YXIgc3VtID0gMDsKICAgIGZvciAodmFyIGkgPSAwOyBpIDwgNTsgaSsrKSB7CiAgICAgICAgc3VtICs9IGk7CiAgICB9CiAgICByZXR1cm4gc3VtOwp9CnNldFRpbWVvdXQoZnVuY3Rpb24gY2IoKSB7CiAgICAvLyBzZXRUaW1lb3V0IGlzIG5vbiBibG9ja2luZwogICAgdmFyIHN1bSA9IGJsb2NraW5nKCk7CiAgICBjb25zb2xlLmxvZyhzdW0pOwp9LCAwKTsKY29uc29sZS5sb2coJ0Fub3RoZXIgYWN0aW9uIGV4ZWN1dGlvbicpOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
 - Node.js: Blocking vs Non-Blocking
 
-## Lecturas recomendadas para profundizar en los temas anteriores:
-- [Overview of Blocking vs Non-Blocking](https://nodejs.org/es/docs/guides/blocking-vs-non-blocking/)
-- [Don't Block the Event Loop (or the Worker Pool)](https://nodejs.org/es/docs/guides/dont-block-the-event-loop/)
+# Call Stack
+- [Call Stack](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gbXVsdGlwbHkobiwgbSkgewogICAgcmV0dXJuIG4gKiBtOwp9CmZ1bmN0aW9uIHNxdWFyZShuKSB7CiAgICByZXR1cm4gbXVsdGlwbHkobiwgbik7Cn0KZnVuY3Rpb24gcHJpbnRSZXN1bHQobikgewogICAgdmFyIG51bWJlciA9IHNxdWFyZShuKTsKICAgIGNvbnNvbGUubG9nKG51bWJlcik7Cn0KcHJpbnRSZXN1bHQoMTApOw%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)
+- [Stacktrace](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gdGhpcmQoKSB7CiAgICB0aHJvdyBuZXcgRXJyb3IoJ1NlZSBzdGFja3RyYWNlJyk7Cn0KZnVuY3Rpb24gc2Vjb25kKCkgewogICAgdGhpcmQoKTsKfQpmdW5jdGlvbiBmaXJzdCgpIHsKICAgIHNlY29uZCgpOwp9CmZpcnN0KCk7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D) (Ejecutar también en navegador)
+- [Uncaught RangeError: Maximum call stack size exceeded](http://latentflip.com/loupe/?code=ZnVuY3Rpb24gcmVjdXJzaXZlKCkgewogICAgcmV0dXJuIHJlY3Vyc2l2ZSgpOwp9CgpyZWN1cnNpdmUoKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D)  (Ejecutar también en navegador)
 
 # Event Loop
 Ejemplo: 5_Event_loop
 Ejemplo: blocking-vs-non-blocking.js
 
+## Lecturas recomendadas para profundizar en los temas anteriores:
+- [Overview of Blocking vs Non-Blocking](https://nodejs.org/es/docs/guides/blocking-vs-non-blocking/)
+- [Don't Block the Event Loop (or the Worker Pool)](https://nodejs.org/es/docs/guides/dont-block-the-event-loop/)
 
 # Crear servidor 
 Ejemplo: node-example.js
