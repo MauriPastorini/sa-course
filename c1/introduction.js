@@ -574,7 +574,7 @@ console.log( b ); // 5
 
 // `bar` hard binds `foo`'s `this` to `obj`
 // so that it cannot be overriden
-bar.call( window ); // 2 // Esto no lo entendi muy bien
+bar.call( window );
 
 
 // As hard binding is really common, ES5 use a prototype called bind to add this feature:”

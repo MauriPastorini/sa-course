@@ -2,7 +2,7 @@ const AbstractPipeline = require('./abstract-pipeline');
 
 class DirectPipeline extends AbstractPipeline {
     run(input) {
-        let pendingFilters = this.filters.slice();
+        let pendingFilters = this.filters.slice(); //Como una copia
         // Iterate over filters array
         let loop = (err, result) => {
             if (err) {

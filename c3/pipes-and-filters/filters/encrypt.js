@@ -5,7 +5,7 @@ const filterEncrypt = (input, next) => bcrypt.hash(input, 15, next); // point-fr
 module.exports = {
   filterEncrypt,
 };
-
+console.log('Imported');
 if (require.main === module) {
   console.log("I'm process ID", process.pid);
   filterEncrypt(process.argv[2], (err, result) => process.send(result));
