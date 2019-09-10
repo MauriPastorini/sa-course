@@ -46,6 +46,7 @@ Ver ejemplo estructura de carpetas en `nodejs_structure`
 - tests: Todo codigo de pruebas unitarias unit tests o pruebas de aceptacion para el servidor API.
 - app.js: Actua como el archivo de entrada del proyecto donde se inicializa la aplicacion y otros elementos del proyecto
 - package.json: Maneja las dependencias, scripts para corrar con npm y el versionado del proyecto
+- config: todo archivo relacionado a la configuracion del proyecto
 
 Lectura adicional:
 https://www.coreycleary.me/project-structure-for-an-express-rest-api-when-there-is-no-standard-way/
