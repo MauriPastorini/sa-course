@@ -105,14 +105,14 @@ Tener en cuenta para el sistema:
 - Vertidero: Suponer ir a buscar los ingredientes lleva 5 segundos
 
 Pizzas disponibles:
-    - Pizaa con salsa y muzzarella
+    - Pizza con salsa y muzzarella
     - Pizza con salsa, muzzarella y jamon
     - Pizza con salsa, muzzarella y aceitunas
     - Faina
 
 Funcionalidades
 - Obtener menu
-- Pedir Pizaa con salsa y muzzarella
+- Pedir Pizza con salsa y muzzarella
 - Pedir Pizza con salsa, muzzarella y jamon
 - Pedir Pizza con salsa, muzzarella y aceitunas
 
