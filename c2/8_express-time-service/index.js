@@ -3,7 +3,7 @@ const app = express();
 const moment = require('moment-timezone');
 const router = express.Router();
 
-router.get('/', function (req, res) {
+router.get('/pedir-muzza', function (req, res) {
     let query = req.query
     if (query && query.tz) {
         res.send({
