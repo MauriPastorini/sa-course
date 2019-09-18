@@ -2,7 +2,7 @@ const {
     pizzaTypes
 } = require('../config/constants');
 
-const masa = [3, 3];
+let masa = [3, 3];
 
 const nuevoBolo = () => {
     let bolo = masa[0];
