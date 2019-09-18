@@ -3,9 +3,7 @@ const {
     pizzaTypes,
     pizzaTopings
 } = require('../config/constants');
-const {
-    pizzaTypes
-} = require('../config/constants');
+
 var getMenu = async (req, res, next) => {
     return res.status(statusCode.SUCCESS).json({
         types: [pizzaTypes.CHICA, pizzaTypes.GRANDE],

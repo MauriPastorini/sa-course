@@ -1,7 +1,8 @@
 const {
     statusCode
 } = require('../config/constants');
-const Pipeline = require('../services/pipeline/abstract-pipeline');
+
+const Pipeline = require('../services/pipeline/direct-pipeline');
 const filterChefOrden = require('./../services/filters/filter-chef-orden')
 const filterMasero = require('./../services/filters/filter-masero')
 const filterSalsero = require('./../services/filters/filter-salsero')
@@ -10,7 +11,6 @@ const filterChefEntrega = require('./../services/filters/filter-chef-entrega')
 
 
 const getPizza = async (req, res, next) => {
-
     try {
         var pipeline = new Pipeline();
 
@@ -28,11 +28,12 @@ const getPizza = async (req, res, next) => {
 
         pipeline.on('error', (err) => {
             console.log(`The error is ${err}`);
+            res.status(statusCode.INTERNAL_SERVER_ERROR).json(err)
         });
 
         pipeline.on('end', (result) => {
             console.log(`La pizza esta pronta!`);
-            req.send(result)
+            res.status(statusCode.SUCCESS).json(result)
         });
     } catch (err) {
         if (!err.statusCode) {
