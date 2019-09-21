@@ -194,3 +194,10 @@ Desafío: Implementar un API REST utilizando Express.js (o Koa.js) para el ABM d
     "timezone": "America/Montevideo"
   }
 ```
+
+# Notas
+- En carpeta principal, usar app.js cuando es una api que se expone, y sino index.js
+- Nombrar las carpetas con barra baja en los espacios: _ Todo en minusculas. "my_folder"
+- Para los archivos:
+  - Si exportan clases entonces con camelcase: MyArchivoClase.js
+  - Si exportan objectos, funciones, etc. Entonces como las clases: "my_file_anything.js"
