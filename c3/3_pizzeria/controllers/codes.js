@@ -1,0 +1,6 @@
+module.exports = {
+    SUCCESS: 200,
+    UNAUTHORIZED: 401,
+    CLIENT_ERROR: 400,
+    INTERNAL_SERVER_ERROR: 500,
+};
