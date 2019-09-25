@@ -1,7 +1,7 @@
 class Filter {
+
     constructor(name) {
         console.log(`My filter name is ${name}`);
-        this.asyncWork();
     }
 
     async asyncWork() {

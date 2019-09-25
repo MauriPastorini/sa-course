@@ -7,6 +7,7 @@ class FilterChefEntrega extends Filter {
     
     syncWork(data) {
         console.log(`FilterChefEntrega`, data);
+        return data;
     }
 }
 

@@ -18,8 +18,8 @@ Tener en cuenta para el sistema:
 - Pedir una pizza de 12cm o 24cm
 - Simular entidad "Moza" o "Mozo" donde reciben el pedido.
 - Simular entidad chef que recibe la orden
-- Considerar que se mantienen 3 recipientes de salsa, da para 4 pizzas de 12cm cada uno. Cada vez que agotan dos botellas se comienza a preparar otra.
-- Considerar que se mantienen 2 porciones de masa donde da para 3 pizzas de 12cm cada uno. Cada vez que se agota un bolo, se comienza a prepara otro
+- Considerar que se mantienen 3 recipientes de salsa, da para 4 pizzas de 12cm cada uno. Cada vez que agota una botellas se comienza a preparar otra.
+- Considerar que se mantienen 2 porciones de masa donde da para 4 pizzas de 12cm cada uno. Cada vez que se agota un bolo, se comienza a prepara otro
 - Considerar que hay al menos 4 etapas distintas con distintos responsables:
   - Chef: Recibir el pedido del "Moza" o "Mozo"
   - Salsero: Preparar la salsa (Pensar como que hay una "sub cocina" que lo prepara) y la vierte a la pizza
