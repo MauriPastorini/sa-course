@@ -3,7 +3,7 @@ const {
     Jobs
 } = require('../services/sync-service');
 
-const createTransaction = (accountId, amount) => {
+const createTransaction = async (userId, accountId, amount) => {
     const transaction = await models.Transaction.create({
         accountId,
         amount,
@@ -13,10 +13,10 @@ const createTransaction = (accountId, amount) => {
     await Jobs.newTransactionEvent.add({
         event: 'created',
         user: {
-            id: accounts[accountIndex].userId
+            id: userId
         },
         account: {
-            id: accounts[accountIndex].id
+            id: accountId
         },
         transaction
     }, {

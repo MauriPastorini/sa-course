@@ -14,8 +14,7 @@ const userBalanceSchema = Schema({
     },
     email: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     accounts: [{
         id: {

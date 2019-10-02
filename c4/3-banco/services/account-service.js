@@ -3,7 +3,7 @@ const {
     Jobs
 } = require('../services/sync-service');
 
-const createAccount = (userId, currency) => {
+const createAccount = async (userId, currency) => {
     const account = await models.Account.create({
         userId,
         currency
@@ -12,7 +12,7 @@ const createAccount = (userId, currency) => {
     await Jobs.newAccountEvent.add({
         event: 'created',
         user: {
-            id: u.id
+            id: userId
         },
         account
     }, {
@@ -23,7 +23,7 @@ const createAccount = (userId, currency) => {
 
 const findAll = () => {
     return models.Account.findAll({
-        attributes: ['id'],
+        attributes: ['id', 'userId', 'currency'],
         raw: true
     });
 }

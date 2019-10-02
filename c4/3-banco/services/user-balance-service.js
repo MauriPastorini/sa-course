@@ -7,7 +7,7 @@ const findById = (id) => {
     }).exec()
 }
 
-const createBalance = (user) => {
+const createBalance = async (user) => {
     const userBalance = new UserBalance();
     userBalance.fullName = user.fullName;
     userBalance.email = user.email
@@ -15,7 +15,7 @@ const createBalance = (user) => {
     return await userBalance.save()
 }
 
-const addAccountToBalance = (userId, account) => {
+const addAccountToBalance = async (userId, account) => {
     const userBalance = await UserBalance.findOne({
         id: userId
     }).exec()
@@ -27,7 +27,7 @@ const addAccountToBalance = (userId, account) => {
     return await user.save();
 }
 
-const addTransactionToBalance = (userId, accountId, transaction) => {
+const addTransactionToBalance = async (userId, accountId, transaction) => {
     const userBalance = await UserBalance.findOne({
         id: userId
     }).exec()

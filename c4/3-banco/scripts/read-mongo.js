@@ -16,9 +16,6 @@ setInterval(async function generateUserAccountsReport() {
 
     const randomUserId = userIds[randomInt(userIds.length)];
 
-    const timeToken = `rand(${Math.floor(100000 + Math.random() * 900000)})`;
-    console.time(timeToken);
-
     const user = await userBalanceService.findById(randomUserId)
 
     console.timeEnd(timeToken)

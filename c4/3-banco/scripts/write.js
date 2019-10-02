@@ -58,11 +58,13 @@ const transactionService = require('./../services/transaction-service');
     }
 
     const users = await userService.findAll();
+    console.log(users)
     for (let u of users) {
+      console.log(u)
       for (i = 0; i < 5; i++) {
         const account = await accountService.createAccount(
+          u.id,
           'UYU',
-          u.id
         );
         console.log(`Created account ${account.id}`);
       }
@@ -71,13 +73,10 @@ const transactionService = require('./../services/transaction-service');
     let amount;
     const accounts = await accountService.findAll()
 
-
-
     for (;;) {
       amount = randomAmount();
-      console.log(newTransaction);
-      let accountIndex = randomInt(accounts.length).id
-      let newTransaction = await transactionService.createTransaction(accounts[accountIndex], amount)
+      let accountIndex = randomInt(accounts.length - 1)
+      await transactionService.createTransaction(accounts[accountIndex].userId, accounts[accountIndex].id, amount)
     }
   } catch (e) {
     console.log(e);

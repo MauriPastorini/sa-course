@@ -3,7 +3,7 @@ const {
     Jobs
 } = require('../services/sync-service');
 
-const createUser = (fullName, email) => {
+const createUser = async (fullName, email) => {
     const user = await models.User.create({
         fullName,
         email
@@ -19,8 +19,13 @@ const createUser = (fullName, email) => {
     return user
 }
 
-const findAll = () => {
-    return models.User.findAll();
+const findAll = async () => {
+    return models.User.findAll({
+        attributes: ['id', 'fullName',
+            'email'
+        ],
+        raw: true
+    });
 }
 
 module.exports = {
