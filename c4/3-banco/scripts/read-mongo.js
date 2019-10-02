@@ -1,26 +1,25 @@
 const userService = require('./../services/user-service');
-var UserBalance = require('../models/user-balance.js');
+const userBalanceService = require('../services/user-balance-service')
 
 const {
-  randomInt
+  randomInt,
+  extractIds
 } = require('../lib/util');
 
-const extractEmails = xs => xs.map(({
-  email
-}) => email);
 
 setInterval(async function generateUserAccountsReport() {
   try {
-    const userEmails = await userService.findAll().then(extractEmails);
+    const userIds = await userService.findAll().then(extractIds);
 
     const timeToken = `rand(${Math.floor(100000 + Math.random() * 900000)})`;
     console.time(timeToken);
 
-    const randomUserEmail = userEmails[randomInt(userEmails.length)];
+    const randomUserId = userIds[randomInt(userIds.length)];
 
-    const user = await UserBalance.findOne({
-      email: randomUserEmail
-    }).exec()
+    const timeToken = `rand(${Math.floor(100000 + Math.random() * 900000)})`;
+    console.time(timeToken);
+
+    const user = await userBalanceService.findById(randomUserId)
 
     console.timeEnd(timeToken)
     console.log('Read result', user)

@@ -1,13 +1,11 @@
-const models = require('../models');
 const userService = require('./../services/user-service');
-
+const userBalanceService = require('./../services/user-balance-service');
 const {
-  randomInt
+  randomInt,
+  extractIds
 } = require('../lib/util');
 
-const extractIds = xs => xs.map(({
-  id
-}) => id);
+
 
 setInterval(async function generateUserAccountsReport() {
   try {
@@ -17,17 +15,7 @@ setInterval(async function generateUserAccountsReport() {
     console.time(timeToken);
 
     const randomUserId = userIds[randomInt(userIds.length)];
-
-    models.sequelize.query(`
-      SELECT users.id, users.fullName, accounts.id, currency, sum(amount) 
-      FROM transactions, users, accounts 
-      WHERE users.id = accounts.userId
-      AND users.id = ?
-      AND accounts.id = transactions.accountId
-      GROUP BY users.id, users.fullName, accounts.id, currency
-    `, {
-      replacements: [randomUserId]
-    }).then(
+    userBalanceService.getUserReport(randomUserId).then(
       ([results, metadata]) => {
         console.timeEnd(timeToken)
       },

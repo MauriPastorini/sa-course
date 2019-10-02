@@ -1,4 +1,4 @@
-var UserBalance = require('../models/user-balance.js');
+const userBalanceService = require('../services/user-balance-service')
 
 module.exports = {
     queueName: 'event.newUser',
@@ -10,15 +10,12 @@ module.exports = {
     },
     async handler({
         data
-    }) {
+    }, done) {
         console.log(`handling new user job: ${JSON.stringify(data)}`);
         if (data.event === 'created') {
             // add new balance in mongo
-            const newBalance = new UserBalance();
-            newBalance.fullName = data.user.fullName;
-            newBalance.email = data.user.email
-            newBalance.accounts = []
-            await newBalance.save()
+            userBalanceService.createBalance(data.user)
+            done()
         }
     }
 };

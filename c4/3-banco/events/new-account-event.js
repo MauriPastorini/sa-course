@@ -1,4 +1,4 @@
-var UserBalance = require('../models/user-balance.js');
+const userBalanceService = require('../services/user-balance-service')
 
 module.exports = {
     queueName: 'event.newAccount',
@@ -13,14 +13,7 @@ module.exports = {
     }, done) {
         console.log(`handling account job: ${JSON.stringify(data)}`);
         if (data.event === 'created') {
-            // edit created balance
-            const user = await UserBalance.findById(data.user.id).exec()
-            user.accounts.push({
-                currency: data.account.currency,
-                balance: 0,
-                transactions: []
-            });
-            await user.save();
+            userBalanceService.addAccountToBalance(data.user.id, data.account)
             done();
         }
     }

@@ -16,7 +16,7 @@ const createUser = (fullName, email) => {
         priority: 1
     }); //high priority to transactions
 
-    return user;
+    return user
 }
 
 const findAll = () => {
