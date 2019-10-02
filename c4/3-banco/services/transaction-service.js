@@ -4,12 +4,11 @@ const {
 } = require('../services/sync-service');
 
 const createTransaction = (accountId, amount) => {
-    let newTransaction = {
+    const transaction = await models.Transaction.create({
         accountId,
         amount,
         concept: amount >= 0 ? 'deposit' : 'withdrawal'
-    };
-    const transaction = await models.Transaction.create(newTransaction);
+    });
 
     await Jobs.newTransactionEvent.add({
         event: 'created',
@@ -23,6 +22,8 @@ const createTransaction = (accountId, amount) => {
     }, {
         priority: 3
     }); //lower priority to transactions
+
+    return transaction;
 }
 
 const findAll = () => {

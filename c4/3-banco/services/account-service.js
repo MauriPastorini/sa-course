@@ -18,6 +18,7 @@ const createAccount = (userId, currency) => {
     }, {
         priority: 2
     }); //medium priority to transactions
+    return account;
 }
 
 const findAll = () => {
