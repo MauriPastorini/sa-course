@@ -69,5 +69,5 @@ module.exports = {
     addTransactionToBalance,
     addAccountToBalance,
     createBalance,
-    executeQuery
+    getUserReport
 }
