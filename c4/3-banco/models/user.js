@@ -8,14 +8,11 @@ module.exports = (sequelize, types) =>
             },
             fullName: {
                 type: types.STRING,
-                allowNull: false,
+                allowNull: false
             },
             email: {
                 type: types.STRING,
-                allowNull: false,
-                validate: {
-                    isEmail: true
-                }
+                allowNull: false
             },
         }, {
             timestamps: true,

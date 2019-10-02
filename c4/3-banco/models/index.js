@@ -1,12 +1,17 @@
 const Sequelize = require('sequelize');
 
 // initialize connection
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: process.env.DB_STORAGE_PATH || './db.sqlite',
-  logging: false,
-  retry: 0,
-});
+// const sequelize = new Sequelize({
+//   dialect: 'sqlite',
+//   storage: process.env.DB_STORAGE_PATH || './db.sqlite',
+//   logging: false,
+//   retry: 0,
+// });
+
+const sequelize = new Sequelize('cqrs-example', 'admin', 'astropay', {
+  dialect: 'mysql',
+})
+
 
 // set up models
 const User = require('./user')(sequelize, Sequelize);

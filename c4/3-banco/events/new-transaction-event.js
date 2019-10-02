@@ -11,13 +11,14 @@ module.exports = {
     async handler({
         data
     }, done) {
-        console.log(`handling transaction job: ${JSON.stringify(data)}`);
-        if (data.event === 'created') {
+        try {
+            console.log(`handling transaction job: ${JSON.stringify(data)}`);
 
-            userBalanceService.addTransactionToBalance(data.user.id, data.account.id, data.transaction)
+            await userBalanceService.addTransactionToBalance(data.user.id, data.account.id, data.transaction)
             // edit created balance
             done()
-
+        } catch (err) {
+            throw new Error(err)
         }
     }
 };

@@ -11,11 +11,14 @@ module.exports = {
     async handler({
         data
     }, done) {
-        console.log(`handling new user job: ${JSON.stringify(data)}`);
-        if (data.event === 'created') {
+        try {
+            console.log(`handling new user job: ${JSON.stringify(data)}`);
             // add new balance in mongo
-            userBalanceService.createBalance(data.user)
+            await userBalanceService.createBalance(data.user)
             done()
+        } catch (err) {
+            throw new Error(err)
         }
+
     }
 };

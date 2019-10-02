@@ -19,10 +19,16 @@ const jobs = Object.entries(jobDefinitions).reduce(
 
 //TODO conectar mongo
 const startWorker = () => Object.entries(jobs).forEach(
+
     ([jobName, queue]) => {
-        queue.process(jobDefinitions[jobName].handler)
-        console.log(`Set up ${JSON.stringify(jobName)}`)
+        try {
+            queue.process(jobDefinitions[jobName].handler)
+            console.log(`Set up ${JSON.stringify(jobName)}`)
+        } catch (err) {
+            throw new Error(err)
+        }
     }
+
 );
 
 module.exports = {

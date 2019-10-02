@@ -11,10 +11,13 @@ module.exports = {
     async handler({
         data
     }, done) {
-        console.log(`handling account job: ${JSON.stringify(data)}`);
-        if (data.event === 'created') {
-            userBalanceService.addAccountToBalance(data.user.id, data.account)
+        try {
+            console.log(`handling account job: ${JSON.stringify(data)}`);
+            await userBalanceService.addAccountToBalance(data.user.id, data.account)
             done();
+            console.log(`end`);
+        } catch (err) {
+            throw new Error(err)
         }
     }
 

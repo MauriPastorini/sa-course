@@ -9,6 +9,7 @@ const findById = (id) => {
 
 const createBalance = async (user) => {
     const userBalance = new UserBalance();
+    userBalance.id = user.id;
     userBalance.fullName = user.fullName;
     userBalance.email = user.email
     userBalance.accounts = []
@@ -19,12 +20,19 @@ const addAccountToBalance = async (userId, account) => {
     const userBalance = await UserBalance.findOne({
         id: userId
     }).exec()
+
+    if (!userBalance) {
+        throw new Error('User does not exist')
+    }
+
     userBalance.accounts.push({
         currency: account.currency,
         balance: 0,
         transactions: []
     });
-    return await user.save();
+    const user = await user.save();
+    console.log(user)
+    return user;
 }
 
 const addTransactionToBalance = async (userId, accountId, transaction) => {
@@ -32,6 +40,9 @@ const addTransactionToBalance = async (userId, accountId, transaction) => {
         id: userId
     }).exec()
 
+    if (!userBalance) {
+        throw new Error('User does not exist')
+    }
     const index = userBalance.accounts.findIndex(a => a.id == accountId);
     if (index >= 0) {
         //add amount to balance
