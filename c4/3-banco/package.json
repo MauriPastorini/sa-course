@@ -1,0 +1,37 @@
+{
+  "name": "banco",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "setup": "node ./scripts/setup.js",
+    "read": "node ./scripts/read.js",
+    "read-mongo": "node ./scripts/read-mongo.js",
+    "write": "node ./scripts/write.js",
+    "bull-ui": "node ./scripts/arena.js",
+    "sync": "nodemon ./scripts/sync.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
+    "express": "~4.16.0",
+    "express-validator": "^5.3.0",
+    "hbs": "~4.0.1",
+    "http-errors": "~1.6.2",
+    "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.15",
+    "morgan": "~1.9.0",
+    "multer": "^1.4.1",
+    "mysql2": "^1.7.0",
+    "sequelize": "^5.19.2",
+    "validator": "^10.9.0",
+    "bull": "^3.7.0",
+    "bull-arena": "^2.6.2",
+    "mongoose-unique-validator": "^2.0.3"
+  }
+}
