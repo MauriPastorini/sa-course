@@ -1,8 +1,12 @@
 const Queue = require('bull');
 
+const newUserEvent = require('./../events/new-user-event');
+const newAccountEvent = require('./../events/new-account-event');
 const newTransactionEvent = require('./../events/new-transaction-event');
 
 const jobDefinitions = {
+    newUserEvent,
+    newAccountEvent,
     newTransactionEvent,
 };
 
@@ -13,6 +17,7 @@ const jobs = Object.entries(jobDefinitions).reduce(
     }), {}
 );
 
+//TODO conectar mongo
 const startWorker = () => Object.entries(jobs).forEach(
     ([jobName, queue]) => {
         queue.process(jobDefinitions[jobName].handler)

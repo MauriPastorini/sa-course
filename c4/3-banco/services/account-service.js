@@ -1,13 +1,26 @@
 const models = require('../models');
+const {
+    Jobs
+} = require('../services/sync-service');
 
 const createAccount = (userId, currency) => {
-    return models.Account.create({
+    const account = await models.Account.create({
         userId,
         currency
     });
+
+    await Jobs.newAccountEvent.add({
+        event: 'created',
+        user: {
+            id: u.id
+        },
+        account
+    }, {
+        priority: 2
+    }); //medium priority to transactions
 }
 
-const findAllIds = () => {
+const findAll = () => {
     return models.Account.findAll({
         attributes: ['id'],
         raw: true
@@ -16,5 +29,5 @@ const findAllIds = () => {
 
 module.exports = {
     createAccount,
-    findAllIds
+    findAll
 }

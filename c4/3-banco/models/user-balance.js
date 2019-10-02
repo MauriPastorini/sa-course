@@ -3,6 +3,11 @@ const uniqueValidator = require('mongoose-unique-validator');
 const Schema = mongoose.Schema;
 
 const userBalanceSchema = Schema({
+    id: {
+        type: String,
+        required: true,
+        unique: true,
+    },
     fullName: {
         type: String,
         required: true,
@@ -13,10 +18,13 @@ const userBalanceSchema = Schema({
         unique: true
     },
     accounts: [{
+        id: {
+            type: String,
+            required: true,
+        },
         currency: {
             type: String,
             required: true,
-            unique: true
         },
         balance: {
             type: Number

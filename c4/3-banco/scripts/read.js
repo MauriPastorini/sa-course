@@ -11,7 +11,7 @@ const extractIds = xs => xs.map(({
 
 setInterval(async function generateUserAccountsReport() {
   try {
-    const userIds = await userService.findAllIds().then(extractIds);
+    const userIds = await userService.findAll().then(extractIds);
 
     const timeToken = `rand(${Math.floor(100000 + Math.random() * 900000)})`;
     console.time(timeToken);

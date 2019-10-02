@@ -2,9 +2,6 @@ const {
   randomInt
 } = require('../lib/util');
 
-const {
-  Jobs
-} = require('../services/sync-service');
 
 const randomAmount = () => randomInt(100) - randomInt(100);
 const randomNames = [{
@@ -49,9 +46,6 @@ const userService = require('./../services/user-service');
 const accountService = require('./../services/account-service');
 const transactionService = require('./../services/transaction-service');
 
-const extractIds = xs => xs.map(({
-  id
-}) => id);
 
 (async () => {
   try {
@@ -63,32 +57,27 @@ const extractIds = xs => xs.map(({
       console.log(`Created user ${user.id}`);
     }
 
-    const userIds = await userService.findAllIds();
-    for (let userId of userIds.map(user => user.id)) {
+    const users = await userService.findAll();
+    for (let u of users) {
       for (i = 0; i < 5; i++) {
         const account = await accountService.createAccount(
           'UYU',
-          userId
+          u.id
         );
         console.log(`Created account ${account.id}`);
       }
     }
 
     let amount;
-    const accountIds = await accountService.findAllIds({
-      attributes: ['id'],
-      raw: true
-    }).then(extractIds);
+    const accounts = await accountService.findAll()
+
+
 
     for (;;) {
       amount = randomAmount();
-
       console.log(newTransaction);
-      let newTransaction = await transactionService.createTransaction(accountIds[randomInt(accountIds.length)], amount)
-      await Jobs.ProcessBalanceEntryEvent.add({
-        event: 'created',
-        transaction: newTransaction
-      });
+      let accountIndex = randomInt(accounts.length).id
+      let newTransaction = await transactionService.createTransaction(accounts[accountIndex], amount)
     }
   } catch (e) {
     console.log(e);
