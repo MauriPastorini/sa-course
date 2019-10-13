@@ -14,5 +14,9 @@ const mongooseConection = mongoose.connect('mongodb://127.0.0.1/cqrs-banco', {
 
 
 mongooseConection.then(() => {
-    startWorker();
+    try {
+        startWorker();
+    } catch (err) {
+        console.log(err)
+    }
 })

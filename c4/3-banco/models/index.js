@@ -8,7 +8,7 @@ const Sequelize = require('sequelize');
 //   retry: 0,
 // });
 
-const sequelize = new Sequelize('cqrs-example', 'admin', 'astropay', {
+const sequelize = new Sequelize('cqrs-example', 'user', 'password', {
   dialect: 'mysql',
 })
 

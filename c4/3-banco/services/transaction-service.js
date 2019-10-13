@@ -10,8 +10,8 @@ const createTransaction = async (userId, accountId, amount) => {
         concept: amount >= 0 ? 'deposit' : 'withdrawal'
     });
 
-    await Jobs.newTransactionEvent.add({
-        event: 'created',
+    await Jobs.bankEvents.add({
+        event: 'newTransaction',
         user: {
             id: userId
         },
@@ -20,7 +20,7 @@ const createTransaction = async (userId, accountId, amount) => {
         },
         transaction
     }, {
-        priority: 3
+        priority: 100
     }); //lower priority to transactions
 
     return transaction;

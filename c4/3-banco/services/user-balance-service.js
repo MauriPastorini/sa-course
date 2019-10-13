@@ -26,11 +26,12 @@ const addAccountToBalance = async (userId, account) => {
     }
 
     userBalance.accounts.push({
+        id: account.id,
         currency: account.currency,
         balance: 0,
         transactions: []
     });
-    const user = await user.save();
+    const user = await userBalance.save();
     console.log(user)
     return user;
 }
@@ -49,6 +50,7 @@ const addTransactionToBalance = async (userId, accountId, transaction) => {
         userBalance.accounts[index].balance += transaction.amount;
         //add transaction to list
         userBalance.accounts[index].transactions.unshift({
+            id: transaction.id,
             concept: transaction.amount >= 0 ? 'deposit' : 'withdrawal',
             amount: transaction.amount
         })

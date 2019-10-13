@@ -9,14 +9,14 @@ const createAccount = async (userId, currency) => {
         currency
     });
 
-    await Jobs.newAccountEvent.add({
-        event: 'created',
+    await Jobs.bankEvents.add({
+        event: 'newAccount',
         user: {
             id: userId
         },
         account
     }, {
-        priority: 2
+        priority: 5
     }); //medium priority to transactions
     return account;
 }

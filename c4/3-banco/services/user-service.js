@@ -9,8 +9,8 @@ const createUser = async (fullName, email) => {
         email
     });
 
-    await Jobs.newUserEvent.add({
-        event: 'created',
+    await Jobs.bankEvents.add({
+        event: 'newUser',
         user
     }, {
         priority: 1

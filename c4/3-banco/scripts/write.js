@@ -73,7 +73,7 @@ const transactionService = require('./../services/transaction-service');
     let amount;
     const accounts = await accountService.findAll()
 
-    for (;;) {
+    for (let i = 0; i < 10; i++) {
       amount = randomAmount();
       let accountIndex = randomInt(accounts.length - 1)
       await transactionService.createTransaction(accounts[accountIndex].userId, accounts[accountIndex].id, amount)
