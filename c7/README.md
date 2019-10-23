@@ -6,7 +6,7 @@
 
 Implementación de mecanismo para responder distintos formatos de mensajes, en esta etapa serán los formatos JSON y XML.
 Repasar los *headers* 'Content-Type' y 'Accept'.
-Ejemplo de implementacion de middleware en *koa* para responder el formato adecuado de acuerdo al cliente.
+Ejemplo de implementacion de middleware en *express* para responder el formato adecuado de acuerdo al cliente.
 
 #### Tácticas de disponibilidad y performance en la práctica
 
