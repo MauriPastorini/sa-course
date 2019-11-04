@@ -31,11 +31,11 @@
 
 0.1 + 0.2 // 0.30000000000000004;
 0.1 + 0.7 // 0.7999999999999999;
-https://qntm.org/notpointthree
+https: //qntm.org/notpointthree
 
-// Math object
+    // Math object
 
-Math.random(); // random value between 0 and 1
+    Math.random(); // random value between 0 and 1
 Math.sqrt(4); // 2
 const radius = 5;
 const circumference = 2 * Math.PI * radius;
@@ -43,10 +43,10 @@ const circumference = 2 * Math.PI * radius;
 // Coercion explicit and implicit
 // Explicit
 var a = "42";
-var b = Number( a );
+var b = Number(a);
 
-console.log( a );	// "42"
-console.log( b );	// 42
+console.log(a); // "42"
+console.log(b); // 42
 
 // Implicit
 "99" == 99 // True
@@ -87,7 +87,7 @@ Javascript truth
 */
 const values = [0, "", NaN, null, undefined];
 values.forEach((value) => {
-    if (!value) { 
+    if (!value) {
         console.log(`${value} is false`);
     }
 });
@@ -102,8 +102,10 @@ Boolean(10); // true
 // Parsing numbers
 parseInt('10'); // 10
 parseFloat('0.25'); // 0.25
-+ '10'; // 10 using '+' unary operator
-+ '0.25'; // 0.25 using '+' unary operator
++
+'10'; // 10 using '+' unary operator
++
+'0.25'; // 0.25 using '+' unary operator
 
 // NaN (Not a number) special type
 
@@ -157,7 +159,9 @@ PI = 3.14158; // throws a TypeError: Assignment to constant variable
 
 var baz = 0; // number
 baz = 10; // number
-baz = { attribute: 0 }; // object
+baz = {
+    attribute: 0
+}; // object
 baz = [1, 2, 3, 4]; // array
 
 var bar = 0;
@@ -182,7 +186,8 @@ x // 6
 
 var xPlus = 2;
 testFun(++xPlus);
-function testFun(param){
+
+function testFun(param) {
     console.log('Param: ', param);
 }
 
@@ -190,7 +195,7 @@ y-- // 5
 y // 4
 --y // 3
 
-'hello' + 'ort'; // "hello ort"
+    'hello' + 'ort'; // "hello ort"
 '1' + 2 + 3 // "123"
 1 + 2 + '3' // "33"
 
@@ -216,10 +221,10 @@ sound == 'woof';
 while (true) {
     // an infinite loop!
 }
-  
+
 var input;
 do {
-  input = Math.random();
+    input = Math.random();
 } while (input < 0.5);
 
 // for
@@ -230,26 +235,31 @@ for (var i = 0; i < 5; i++) {
 
 // for..of
 
-var numbers = [0, 1, 2 ,3, 4];
+var numbers = [0, 1, 2, 3, 4];
 for (let item of numbers) {
     console.log(`iteration whit "for..of" n˚: ${item}`);
 }
 
 // for..in
 
-var person = { name: 'John', lastName: 'Doe' };
+var person = {
+    name: 'John',
+    lastName: 'Doe'
+};
 for (let attribute in person) {
     console.log(`iteration whit "for..in" n˚: ${person[attribute]}`);
 }
 
 // short circuit
-var obj = { name: 'John' };
+var obj = {
+    name: 'John'
+};
 var name = obj && obj.name;
 
 // cached example
 
 var cachedName = null;
-var name = cachedName || (cachedName = obj.name); 
+var name = cachedName || (cachedName = obj.name);
 
 // ternary operator
 
@@ -312,7 +322,7 @@ class Person {
         this.name = name;
         this.age = age;
     }
-    toString () {
+    toString() {
         return `{ name: "${this.name}", age: ${this.age} }`;
     }
     sayHi() {
@@ -356,13 +366,13 @@ a.push('cow');
 // object prototype
 
 // Anonymous function 
-var foo = function() {
-	// ..
+var foo = function () {
+    // ..
 };
 
 // Named function 
-var x = function bar(){
-	// ..
+var x = function bar() {
+    // ..
 };
 
 // functions are objects
@@ -393,7 +403,7 @@ function multiply(a, b) {
     return result;
 }
 
-multiply(2,4); // 8
+multiply(2, 4); // 8
 multiply(); // NaN, you can ommit parameters
 
 function sayHi(name) {
@@ -428,17 +438,17 @@ function calculate(score, assistance) {
 // Lexical scope means that scope is defined by author-time decisions of where functions are declared. 
 // The lexing phase of compilation is essentially able to know where and how all identifiers are declared, 
 // and thus predict how they will be looked-up during execution.
-https://raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20%26%20closures/fig2.png
+https: //raw.githubusercontent.com/getify/You-Dont-Know-JS/master/scope%20%26%20closures/fig2.png
 
-// Closures
-//Closure es cuando una funcion puede recordar el acceso al lexical scope incluso cuando es invocado afuera de el
+    // Closures
+    //Closure es cuando una funcion puede recordar el acceso al lexical scope incluso cuando es invocado afuera de el
 
 
-function prefixAndSuffix(prefix) {
-    return function(suffix) {
-        return `${prefix} ${suffix}`;
-    };
-}
+    function prefixAndSuffix(prefix) {
+        return function (suffix) {
+            return `${prefix} ${suffix}`;
+        };
+    }
 var addSuffix = prefixAndSuffix('Hi!, I\'m ');
 addSuffix('John');
 
@@ -449,7 +459,7 @@ a = 2;
 
 var a;
 
-console.log( a ); //2
+console.log(a); //2
 
 ///
 
@@ -460,13 +470,13 @@ function hoist() {
 
 hoist();
 
-console.log(a); 
+console.log(a);
 /* 
 Accessible as a global variable outside hoist() function
 Output: 20
 */
 
-console.log(b); 
+console.log(b);
 /*
 Since it was declared, it is confined to the hoist() function scope.
 We can't print it out outside the confines of the hoist() function.
@@ -478,38 +488,38 @@ Output: ReferenceError: b is not defined
 // En el siguiente caso, someReallyBigData seguiria en el scope por btn.addEventListener…. que mantiene el scope. 
 
 function process(data) {
-	// do something interesting
+    // do something interesting
 }
 
-var someReallyBigData = {  };
+var someReallyBigData = {};
 
-process( someReallyBigData );
+process(someReallyBigData);
 
-var btn = document.getElementById( "my_button" );
+var btn = document.getElementById("my_button");
 
-btn.addEventListener( "click", function click(evt){
-	console.log("button clicked");
-}, /*capturingPhase=*/false );
+btn.addEventListener("click", function click(evt) {
+    console.log("button clicked");
+}, /*capturingPhase=*/ false);
 
 
 // Para poder “decirle” al garbage collector que pase, podriamos hacer uso de los block scopes
 
 function process(data) {
-	// do something interesting
+    // do something interesting
 }
 
 // anything declared inside this block can go away after!
 {
-	let someReallyBigData = {  };
+    let someReallyBigData = {};
 
-	process( someReallyBigData );
+    process(someReallyBigData);
 }
 
-var btn = document.getElementById( "my_button" );
+var btn = document.getElementById("my_button");
 
-btn.addEventListener( "click", function click(evt){
-	console.log("button clicked");
-}, /*capturingPhase=*/false );
+btn.addEventListener("click", function click(evt) {
+    console.log("button clicked");
+}, /*capturingPhase=*/ false);
 
 
 //THIS
@@ -520,7 +530,8 @@ btn.addEventListener( "click", function click(evt){
 
 // Default Binding
 function foo() {
-	console.log( this.a );
+    var b = 1;
+    console.log(this.a);
 }
 
 var a = 2;
@@ -529,12 +540,12 @@ foo(); // 2
 
 // Implicit Binding
 function foo() {
-	console.log( this.a );
+    console.log(this.a);
 }
 var a = 3
 var obj = {
-	a: 2,
-	foo: foo
+    a: 20,
+    foo: foo
 };
 
 obj.foo(); // 2
@@ -545,63 +556,74 @@ obj.foo(); // 2
 // without putting a property function reference on the object?
 
 function foo() {
-	console.log( this.a );
+    console.log(this.a);
 }
-
+var a = 1
 var obj = {
-	a: 2
+    b: 2
 };
 
-foo.call( obj ); // 2
+foo.call(obj); // 2
 
 // Hard binding
 function foo(something) {
-	console.log( this.a, something );
-	return this.a + something;
+    console.log(this.a, something);
+    return this.a + something;
 }
 
 var obj = {
-	a: 2
+    a: 2
 };
 
-var bar = function() {
+var bar = function () {
     console.log(arguments);
-    return foo.apply( obj, arguments );
+    return foo.apply(obj, arguments);
 };
 
-var b = bar( 3 ); // 2 3
-console.log( b ); // 5
+var b = bar(3); // 2 3
+console.log(b); // 5
 
 // `bar` hard binds `foo`'s `this` to `obj`
 // so that it cannot be overriden
-bar.call( window );
+bar.call(window);
 
 
 // As hard binding is really common, ES5 use a prototype called bind to add this feature:”
 function foo(something) {
-	console.log( this.a, something );
-	return this.a + something;
+    console.log(this.a, something);
+    return this.a + something;
 }
 
 var obj = {
-	a: 2
+    a: 2
 };
 
-var bar = foo.bind( obj );
+var bar = foo.bind(obj);
 
-var b = bar( 3 ); // 2 3
-console.log( b ); // 5
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+var b = bar(3); // 2 3
+console.log(b); // 5
 
 // new Binding
 // a brand new object is created (aka, constructed) out of thin air
 // the newly constructed object is set as the this binding for that function call
 // unless the function returns its own alternate object, the new-invoked function call will automatically return the newly constructed object.
 function foo(a) {
-	this.a = a;
+    this.a = a;
 }
+var a = 9;
+var bar = foo(2);
 
-var bar = new foo( 2 );
-console.log( bar.a ); // 2
+console.log(a); // 2
 // By calling foo(..) with new in front of it, we've constructed a new object and set that new object as the this for the call of foo(..)
 
 // Review 

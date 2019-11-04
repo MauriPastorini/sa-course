@@ -25,5 +25,8 @@ const catSchema = Schema({
     }
 });
 
+catSchema.methods.toJson = () => {
+    
+}
 
 module.exports = mongoose.model('cat', catSchema);

@@ -1,11 +1,10 @@
-const statusCodes = require('./codes');
-
 const catsService = require('../services/cats_service');
 
 const list = async (req, res, next) => {
     try {
         const cats = await catsService.list();
-        return res.status(statusCodes.SUCCESS).json(cats);
+        req.result = cats;
+        next()
     } catch (err) {
         next(err);
     }
@@ -14,7 +13,8 @@ const list = async (req, res, next) => {
 const fetch = async (req, res, next) => {
     try {
         const cat = await catsService.fetch(req.params.id);
-        return res.status(statusCodes.SUCCESS).json(cat);
+        req.result = cat;
+        next();
     } catch (err) {
         next(err);
     }

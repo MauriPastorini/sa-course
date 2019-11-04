@@ -15,9 +15,9 @@ Tácticas de disponibilidad:
 * Ping/Echo
 	* Implementación de endpoints de *healtcheck* en ambas APIs de ejemplo provistas
 	* Discusión e implementación de módulo para realizar *pings*
+	* [Express healthcheck-graceful-shutdown](https://expressjs.com/en/advanced/healthcheck-graceful-shutdown.html)
 * Monitoring
 	* Introducción a [PM2](http://pm2.keymetrics.io/docs/usage/quick-start/) y [comandos](http://pm2.keymetrics.io/docs/usage/quick-start/#cheat-sheet) mas utilizados
-	* [Plugins](https://pm2.io/doc/en/plus/guide/modules/) para monitoreo de servidores, bases de datos
 	* Utilizar PM2 para ejecutar y monitorear múltiples procesos
 
 Tácticas de performance:

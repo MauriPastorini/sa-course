@@ -1,12 +1,11 @@
-const statusCodes = require('./codes');
-
 const dogsService = require('../services/dogs_service');
 
 const list = async (req, res, next) => {
     try {
         console.log('list')
         const dogs = await dogsService.list();
-        return res.status(statusCodes.SUCCESS).json(dogs);
+        req.result = dogs;
+        next();
     } catch (err) {
         next(err);
     }
@@ -15,7 +14,8 @@ const list = async (req, res, next) => {
 const fetch = async (req, res, next) => {
     try {
         const dog = await dogsService.fetch(req.params.id);
-        return res.status(statusCodes.SUCCESS).json(dog);
+        req.result = dog;
+        next();
     } catch (err) {
         next(err);
     }
@@ -24,7 +24,7 @@ const fetch = async (req, res, next) => {
 const save = async (req, res, next) => {
     try {
         const dog = await dogsService.save(req.body)
-        return res.status(statusCodes.SUCCESS).json(dog);
+        req.result = dog;
     } catch (err) {
         next(err);
     }
